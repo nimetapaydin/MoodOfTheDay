@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.developer.moodoftheday.ActivityModumSayfasi">
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/profileGit"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+
+    <ImageButton
+        android:id="@+id/modEkle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="47dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_below="@+id/imageView2"
+        android:layout_toLeftOf="@+id/profileGit"
+        android:layout_toStartOf="@+id/profileGit"
+        android:layout_marginRight="80dp"
+        android:layout_marginEnd="80dp" />
+
+    <TextView
+        android:id="@+id/modunDurumu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modEkle"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/profileGit"
+        android:layout_toStartOf="@+id/profileGit"
+        android:hint="Günün Modunu Ekle" />
+
+    <ImageButton
+        android:id="@+id/resDurEkle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/paylas"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/sonDurum"
+        android:layout_toStartOf="@+id/sonDurum"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/fotogalerii" />
+
+    <Button
+        android:id="@+id/paylas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:text="Paylaş"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginBottom="42dp" />
+
+    <EditText
+        android:id="@+id/sonDurum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:layout_alignBottom="@+id/resDurEkle"
+        android:layout_toLeftOf="@+id/profileGit"
+        android:layout_toStartOf="@+id/profileGit"
+        android:layout_marginBottom="18dp" />
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.developer.moodoftheday.profilModAdapterr">
+
+    <ImageView
+        android:id="@+id/PmodResmi"
+        android:layout_width="50dp"
+        android:layout_height="54dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/PmodDurumu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/PmodResmi"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/paylasilacakResim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/PmodResmi"
+        android:layout_marginTop="44dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/anasayfa" />
+
+    <TextView
+        android:id="@+id/tarih"
+        android:layout_width="115dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/PmodResmi"
+        android:hint="tarih" />
+
+    <TextView
+        android:id="@+id/saat"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:hint="saat"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tarih"
+        android:layout_toRightOf="@+id/tarih" />
+
+    <EditText
+        android:id="@+id/PmodAdi"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_above="@+id/PmodDurumu"
+        android:layout_alignEnd="@+id/saat"
+        android:layout_alignRight="@+id/saat"
+        android:layout_toRightOf="@+id/PmodResmi"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/tarih" />
+
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/menu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
+

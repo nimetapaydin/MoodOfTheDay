@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.developer.moodoftheday.Kaydol">
+    <EditText
+        android:id="@+id/IsımEdit"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Isım"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/KullanıcıAdıEdit"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Kullanıcı Adı"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_alignBaseline="@+id/IsımEdit"
+        android:layout_alignBottom="@+id/IsımEdit"
+        android:layout_toRightOf="@+id/IsımEdit"
+        android:layout_toEndOf="@+id/IsımEdit" />
+
+    <EditText
+        android:id="@+id/EmailEdit"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/IsımEdit"
+        android:layout_alignLeft="@+id/IsımEdit"
+        android:layout_alignStart="@+id/IsımEdit" />
+
+
+    <EditText
+        android:id="@+id/PasswordEdit"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_below="@+id/EmailEdit"
+        android:layout_alignLeft="@+id/EmailEdit"
+        android:layout_alignStart="@+id/EmailEdit" />
+
+
+
+    <EditText
+        android:id="@+id/ConfirmPasswordEdit"
+        android:layout_width="300dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/PasswordEdit"
+        android:layout_alignLeft="@+id/PasswordEdit"
+        android:layout_alignStart="@+id/PasswordEdit" />
+    <Button
+        android:id="@+id/NextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Onay"
+        android:onClick="Onay"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/ConfirmPasswordEdit"
+        android:layout_alignEnd="@+id/ConfirmPasswordEdit" />
+
+    <ImageButton
+        android:id="@+id/KisiResmi"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/ConfirmPasswordEdit"
+        android:layout_marginTop="41dp"
+        android:layout_toLeftOf="@+id/NextPage"
+        android:layout_toStartOf="@+id/NextPage"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/bildirim" />
+
+
+</RelativeLayout>

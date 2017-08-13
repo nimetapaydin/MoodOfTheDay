@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.developer.moodoftheday.ActivityGirisSayfasi">
+
+
+    <TextView
+        android:id="@+id/ModeOfTheDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="61dp"
+        android:text="Mode Of The Day" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_alignBottom="@+id/ModeOfTheDay"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/girisYap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="Giriş Yap"
+        android:layout_below="@+id/ModeOfTheDay"
+        android:layout_alignLeft="@+id/kullaniciAdi"
+        android:layout_alignStart="@+id/kullaniciAdi"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/girisYap"
+        android:layout_centerHorizontal="true"
+        android:text="veya" />
+
+    <Button
+        android:id="@+id/kaydol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView12"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignStart="@+id/imageView3"
+        android:onClick="GirisClick"
+        android:text="Kaydol" />
+
+    <EditText
+        android:id="@+id/kullaniciAdi"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Kullanıcı adı veya Email gir"
+        android:inputType="textPersonName"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/giris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giriş Yap"
+        android:layout_below="@+id/sifre"
+        android:layout_alignRight="@+id/textView12"
+        android:layout_alignEnd="@+id/textView12"
+        android:layout_marginTop="52dp" />
+
+    <TextView
+        android:id="@+id/unuttum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Şifremi Unuttum"
+        android:layout_below="@+id/giris"
+        android:layout_alignLeft="@+id/giris"
+        android:layout_alignStart="@+id/giris" />
+
+    <EditText
+        android:id="@+id/sifre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/kaydol"
+        android:layout_alignLeft="@+id/kullaniciAdi"
+        android:layout_alignRight="@+id/kaydol"
+        android:layout_alignStart="@+id/kullaniciAdi"
+        android:layout_below="@+id/kullaniciAdi"
+        android:layout_marginTop="33dp"
+
+        android:ems="10"
+        android:hint="Şifre"
+        android:inputType="textPersonName"
+        android:password="true" />
+</RelativeLayout>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.developer.moodoftheday.ActivityProfilSayfasi">
+
+
+    <!--<Button-->
+        <!--android:id="@+id/modRengi"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_marginTop="55dp"-->
+        <!--android:hint="Mod Rengi"-->
+        <!--android:background="#fff"-->
+
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <Button
+        android:id="@+id/istatikler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="istatikler"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/profilResmi"
+        android:layout_toStartOf="@+id/profilResmi" />
+
+    <Button
+        android:id="@+id/Mood"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Mood"
+        android:layout_below="@+id/arkadaslar"
+        android:layout_alignLeft="@+id/istatikler"
+        android:layout_alignStart="@+id/istatikler" />
+
+    <Button
+        android:id="@+id/takipEt"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Mesaj"
+        android:layout_below="@+id/arkadaslar"
+        android:layout_alignRight="@+id/arkadaslar"
+        android:layout_alignEnd="@+id/arkadaslar" />
+
+    <Button
+        android:id="@+id/arkadaslar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arkadaşlar"
+
+        android:layout_marginRight="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_alignBaseline="@+id/istatikler"
+        android:layout_alignBottom="@+id/istatikler"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/profilResmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:layout_alignBottom="@+id/takipEt"
+        android:layout_toLeftOf="@+id/takipEt"
+        android:layout_toStartOf="@+id/takipEt"
+        android:layout_marginBottom="16dp" />
+
+    <ListView
+        android:id="@+id/profildekiModlar"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+
+</RelativeLayout>
