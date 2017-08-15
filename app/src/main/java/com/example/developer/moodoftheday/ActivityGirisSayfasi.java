@@ -36,7 +36,7 @@ public class ActivityGirisSayfasi extends AppCompatActivity {
         EditText sifre, kullaniciAdi;
         TextView sifremiunuttum;
     Button giris;
-    ActivityProfilSayfasi gelecekolankisi=new ActivityProfilSayfasi();
+  //  ActivityProfilSayfasi gelecekolankisi=new ActivityProfilSayfasi();
     public DatabaseReference dbreference;
     Kisiler kisi=new Kisiler();
     List<Kisiler> kisiler=new ArrayList<Kisiler>();
@@ -54,12 +54,13 @@ public class ActivityGirisSayfasi extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser  user = firebaseAuth.getCurrentUser();//get current user ile oturum açmış kullanıcıya erişin
-                Log.d("kolay", user.getUid());
                 if (user != null) {
                     // User is signed in
 
                     Log.d("Kontrol", "onAuthStateChanged:signed_in:" + user.getUid());
-                    startActivity(new Intent(ActivityGirisSayfasi.this,ActivityProfilSayfasi.class));
+                    Intent fake=new Intent(ActivityGirisSayfasi.this,MainPage.class);
+                    fake.putExtra("fake","");
+                    startActivity(fake);
                 } else {
                     // User is signed out
                     Log.d("Kontrol", "onAuthStateChanged:signed_out");

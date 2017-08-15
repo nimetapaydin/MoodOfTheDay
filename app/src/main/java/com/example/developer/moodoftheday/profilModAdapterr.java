@@ -64,7 +64,7 @@ public class profilModAdapterr extends BaseAdapter {
         TextView saat=  (TextView) lineView.findViewById(R.id.saat);
         ImageView PmodResmi = (ImageView) lineView.findViewById(R.id.PmodResmi);
         ImageButton PmodPaylasilanResim = (ImageButton) lineView.findViewById(R.id.paylasilacakResim);
-      final ImageButton  menu = (ImageButton) lineView.findViewById(R.id.menu);
+        final ImageButton  menu = (ImageButton) lineView.findViewById(R.id.menu);
 
 
 

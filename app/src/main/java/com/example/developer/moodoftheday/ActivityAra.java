@@ -2,6 +2,8 @@ package com.example.developer.moodoftheday;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +18,7 @@ import java.util.List;
 public class ActivityAra extends AppCompatActivity {
 DatabaseReference dbref;
     List<Kisiler> kisi=new ArrayList<Kisiler>();
+    ListView araListe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +39,7 @@ DatabaseReference dbref;
                     kisi.add(ara);
 
                 }
-
-
-               ListView araListe = (ListView) findViewById(R.id.araListe);
+                araListe = (ListView) findViewById(R.id.araListe);
                 araAdapter adapter = new araAdapter(ActivityAra.this, kisi);
                 araListe.setAdapter(adapter);
 
@@ -49,5 +50,15 @@ DatabaseReference dbref;
 
             }
         });
+
+        araListe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+
+
     }
 }

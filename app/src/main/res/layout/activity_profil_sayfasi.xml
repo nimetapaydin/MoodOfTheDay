@@ -77,5 +77,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp" />
 
+    <Button
+        android:id="@+id/gizlilikAyarlari"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_wrap_text_black_24dp" />
+
 
 </RelativeLayout>

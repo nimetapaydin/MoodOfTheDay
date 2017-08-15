@@ -13,6 +13,8 @@ import java.sql.Time;
  */
 
 public class modumProfil {
+
+
     String modAdi, paylasilanDurum,saat,tarih,id;
     String resimUrl;
     int profResmi;
@@ -24,6 +26,10 @@ public class modumProfil {
         this.profResmi = profResmi;
         this.saat = saat;
         this.tarih = tarih;
+    }
+
+    public modumProfil(String resimUrl) {
+        this.resimUrl = resimUrl;
     }
 
     public modumProfil() {

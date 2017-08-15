@@ -10,14 +10,17 @@
             android:id="@+id/Arkadaslar"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Arkadaslar" />
+
         <item
             android:id="@+id/Message"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Message" />
+
         <item
             android:id="@+id/nav_send"
             android:icon="@drawable/ic_menu_send"
             android:title="Modum" />
+
         <item
             android:id="@+id/ara"
             android:icon="@drawable/ic_search_black_24dp"

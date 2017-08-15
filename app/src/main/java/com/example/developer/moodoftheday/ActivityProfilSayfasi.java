@@ -54,6 +54,7 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
     Kisiler kisi=new Kisiler();
     Menu menumuz;
     StorageReference storageReference;
+    Button gizlilikAyarlari;
 
     public static String alınan;
 
@@ -67,11 +68,11 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
         setContentView(R.layout.activity_profil_sayfasi);
 
 
-        //Intent alındı = getIntent();
-        //final String alınan = alındı.getExtras().getString("gelecekOlanKisi");
+        Intent fakeDataa = getIntent();
+        final String gelecekOlanKisi = fakeDataa.getExtras().getString("gelecekOlanKisi");
 
         dbref = FirebaseDatabase.getInstance().getReference("kullaniciModlari").child(alınan);
-        refKisiFoto = FirebaseDatabase.getInstance().getReference("users");
+     //   refKisiFoto = FirebaseDatabase.getInstance().getReference("users").child("");
         profilresmi = (ImageButton) findViewById(R.id.profilResmi);
         profilresmi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +89,7 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
 
                                 Intent profResm = new Intent(getApplicationContext(),profilResmi.class);
+                                profResm.putExtra("fakeRes","");
                                 startActivity(profResm);
                             }
                         });
@@ -132,6 +134,9 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
         });
 
 
+
+        Intent alındı = getIntent();
+        final String alınannn = alındı.getExtras().getString("gelecekOlanKisi");
         mod = (Button) findViewById(R.id.Mood);
 
         mod.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +151,7 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
 
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(getApplicationContext(), ActivityModumSayfasi.class);
-                                intent.putExtra("kisiReference", alınan);
+                                intent.putExtra("kisiReference", gelecekOlanKisi);
                                 startActivity(intent);
                                 finish();
                             }
@@ -167,6 +172,10 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
             }
         });
 
+
+        Intent alinanGizlilikResmi=getIntent();
+        final int alinanGizlilik=alinanGizlilikResmi.getExtras().getInt("gizlilik esası");
+
         dbref.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -178,9 +187,12 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
                 }
 
 
+
                 durumListesi = (ListView) findViewById(R.id.profildekiModlar);
                 profilModAdapterr adapter = new profilModAdapterr(ActivityProfilSayfasi.this, liste);
                 durumListesi.setAdapter(adapter);
+
+
 
             }
 
@@ -190,6 +202,48 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
             }
         });
 
+
+
+//        Intent databaseDurum=getIntent();
+//        final String databaseDurumEkle=databaseDurum.getExtras().getString("databaseGizlilik");
+
+
+        gizlilikAyarlari=(Button) findViewById(R.id.gizlilikAyarlari);
+        gizlilikAyarlari.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                android.widget.PopupMenu popup = new android.widget.PopupMenu(ActivityProfilSayfasi.this, gizlilikAyarlari);
+
+                popup.getMenuInflater().inflate(R.menu.gizlilikmenu, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new android.widget.PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.gdüzenle:
+                            {
+
+
+                                Intent git=new Intent(ActivityProfilSayfasi.this,ActivityGizlilik.class);
+                                git.putExtra("kisiIdsiGönder",gelecekOlanKisi);
+                                startActivity(git);
+
+                            }
+
+                                break;
+
+                        }
+                       return true;
+                    }
+                });
+
+                popup.show();
+
+
+            }
+        });
+
+       gizlilikAyarlari.setBackgroundResource(alinanGizlilik);
 
     }
     String id;
@@ -216,12 +270,6 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
                     Toast.makeText(ActivityProfilSayfasi.this, "Upload Done", Toast.LENGTH_LONG).show();
 
                 }});
-
-
-
-
-
-
 
 
 

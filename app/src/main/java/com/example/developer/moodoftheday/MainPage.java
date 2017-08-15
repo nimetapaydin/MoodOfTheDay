@@ -23,7 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-        DatabaseReference kisiRef=FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference kisiRef;
+    String alınan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +32,11 @@ public class MainPage extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent alındı = getIntent();
-        final String alınan = alındı.getExtras().getString("gelecekOlanKisi");
+        alınan = alındı.getExtras().getString("gelecekOlanKisi");
+        kisiRef=FirebaseDatabase.getInstance().getReference("users");
 
+        Intent fake=getIntent();
+      final   String fakee=fake.getExtras().getString("fake");
 
 
 
@@ -107,8 +111,10 @@ public class MainPage extends AppCompatActivity
         }
 
         if (id == R.id.GotoProfile) {
-            // Handle the camera action
-            startActivity(new Intent(getApplicationContext(), ActivityProfilSayfasi.class));
+            Intent aa=new Intent(getApplicationContext(),ActivityProfilSayfasi.class);
+            aa.putExtra("gelecekOlanKisi",alınan);
+            startActivity(aa);
+
         } else if (id == R.id.Arkadaslar) {
 
         } else if (id == R.id.Message) {
@@ -119,10 +125,14 @@ public class MainPage extends AppCompatActivity
            // startActivity(new Intent(getApplicationContext(), ActivityAnaSayfa.class));
 
         } else if (id == R.id.nav_send) {
-            startActivity(new Intent(getApplicationContext(), ActivityModumSayfasi.class));
+           // startActivity(new Intent(getApplicationContext(), ActivityModumSayfasi.class));
 
         } else if (id == R.id.ara) {
         startActivity(new Intent(getApplicationContext(), ActivityAra.class));
+
+    } else if (id == R.id.gizlilikAyarlari) {
+
+        startActivity(new Intent(getApplicationContext(), ActivityAyarlar.class));
 
     }
 

@@ -53,6 +53,7 @@ public class Kaydol extends AppCompatActivity implements  Validator.ValidationLi
     EditText kullanıcıAdi;
     Validator validator;
     boolean controlpointtwo=true;
+
     DatabaseReference users = FirebaseDatabase.getInstance().getReference("users");
 
     ImageButton kisiResmi;
@@ -65,7 +66,7 @@ public class Kaydol extends AppCompatActivity implements  Validator.ValidationLi
     private static final int fotograf = 1;
     private static final int resim = 2;
     StorageReference storageReference;
-Uri imageUri;
+    Uri imageUri;
 
 
     List<Kisiler> person=new ArrayList<>();
@@ -124,13 +125,7 @@ Uri imageUri;
                 secimDialog.show();
             }
         });
-
-
     }
-
-
-
-
     @Override
     public void onValidationSucceeded() {
         username = name.getText().toString().trim();
@@ -145,6 +140,7 @@ Uri imageUri;
                         validator.validate();
 
 
+
                         if (Password.equals(confirmPassword.getText().toString())) {
                             FirebaseAuth.getInstance().createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -153,7 +149,7 @@ Uri imageUri;
                                         FirebaseAuth.getInstance().getCurrentUser();
                                         if(imageUri==null){
 
-                                            users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,String.valueOf(R.drawable.ayarlar)));
+                                            users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,String.valueOf(R.drawable.ayarlar),"herkes"));
                                             Toast.makeText(Kaydol.this, "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(Kaydol.this, ActivityGirisSayfasi.class);
                                             startActivity(intent);
@@ -168,7 +164,7 @@ Uri imageUri;
                                                 @SuppressWarnings("VisibleForTests") String alll = taskSnapshot.getDownloadUrl().toString();
 
 
-                                        users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,alll));
+                                        users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,alll,"herkes"));
                                         Toast.makeText(Kaydol.this, "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Kaydol.this, ActivityGirisSayfasi.class);
                                         startActivity(intent);

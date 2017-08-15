@@ -2,6 +2,7 @@ package com.example.developer.moodoftheday;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -20,27 +22,29 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class araAdapter extends BaseAdapter {
+public class gizlilikAdapter  extends BaseAdapter {
 
-
-    List<Kisiler> aranacak= new ArrayList<Kisiler>();
+    List<gizlilikClass> gizlilik = new ArrayList<gizlilikClass>();
     LayoutInflater modInflater;
-    Context context;
+    Intent dön;
 
-    public araAdapter(Context activity, List<Kisiler> aranacak) {
+    PopupMenu popup;
+
+    public gizlilikAdapter(Activity activity, List<gizlilikClass> gizlilik) {
         modInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        this.aranacak = aranacak;
-        this.context = activity;
+        this.gizlilik = gizlilik;
+
     }
+
     @Override
     public int getCount() {
-        return aranacak.size();
+        return gizlilik.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return aranacak.get(position);
+        return gizlilik.get(position);
     }
 
     @Override
@@ -51,23 +55,18 @@ public class araAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View lineView;
-        lineView = modInflater.inflate(R.layout.activity_ara_adapter, null);
-        TextView ad= (TextView) lineView.findViewById(R.id.isim);
-        ImageButton profResmi = (ImageButton) lineView.findViewById(R.id.profResmii);
+        lineView = modInflater.inflate(R.layout.activity_gizlilik_adapter, null);
+        final TextView durum = (TextView) lineView.findViewById(R.id.durum);
+        ImageView image = (ImageView) lineView.findViewById(R.id.image);
+        final RadioButton radioButton = (RadioButton) lineView.findViewById(R.id.radioButton);
+        final ImageButton menu = (ImageButton) lineView.findViewById(R.id.menu);
 
 
-
-
-
-        final Kisiler ara = aranacak.get(position);
-        ad.setText(ara.getName());
-        Glide.with(context).load(ara.getKisiResmi()).into(profResmi);
-
-
-
-
-
+        final gizlilikClass gizli = gizlilik.get(position);
+        durum.setText(gizli.getDurum());
+        image.setImageResource(gizli.getImage());
+      //  radioButton.setActivated(gizli.isRadioButton());
         return lineView;
+
     }
 }
-

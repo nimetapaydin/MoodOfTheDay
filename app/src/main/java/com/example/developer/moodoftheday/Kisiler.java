@@ -13,12 +13,13 @@ public class Kisiler {
     String kullaniciadi;
     String email;
     String password;
+    String profilGizlilik;
 
   String kisiResmi;
 
 
 
-    public Kisiler(String name, String kullaniciadi, String email, String password,String kisiResmi) {
+    public Kisiler(String name, String kullaniciadi, String email, String password,String kisiResmi,String profilGizlilik) {
 
 
         this.name = name;
@@ -27,14 +28,33 @@ public class Kisiler {
         this.email = email;
         this.password = password;
         this.kisiResmi=kisiResmi;
+        this.profilGizlilik=profilGizlilik;
+
     }
 
     public Kisiler(String name, String kisiResmi) {
         this.name = name;
         this.kisiResmi = kisiResmi;
     }
+//
+//    public Kisiler(String kisiResmi) {
+//        this.kisiResmi = kisiResmi;
+//    }
 
-//        public Kisiler(String name, String yas, String memleket, String  kisiResmi) {
+
+    public Kisiler(String profilGizlilik) {
+        this.profilGizlilik = profilGizlilik;
+    }
+
+    public String getProfilGizlilik() {
+        return profilGizlilik;
+    }
+
+    public void setProfilGizlilik(String profilGizlilik) {
+        this.profilGizlilik = profilGizlilik;
+    }
+
+//            public Kisiler(String name, String yas, String memleket, String  kisiResmi) {
 //        this.name = name;
 //        this.yas = yas;
 //        this.memleket = memleket;
@@ -42,13 +62,15 @@ public class Kisiler {
 //    }
 
 
+
+
     public Kisiler() {
     }
 
 
-    public Kisiler(String kisiResmi) {
-
-    }
+////    public Kisiler(String kisiResmi) {
+////
+////    }
 
     public String getName() {
         return name;

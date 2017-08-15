@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityModumSayfasi" />
-        <activity android:name=".ActivityAnaSayfa" />
         <activity android:name=".Kaydol" />
         <activity android:name=".ModAdapter" />
         <activity android:name=".ActivityProfilSayfasi" />
@@ -37,7 +36,10 @@
             android:name=".MainPage"
             android:label="@string/title_activity_main_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActivityArkadasListesi"></activity>
+        <activity android:name=".ActivityArkadasListesi" />
+        <activity android:name=".ActivityAyarlar" />
+        <activity android:name=".ActivityGizlilik" />
+        <activity android:name=".gizlilikAdapter"></activity>
     </application>
 
 </manifest>
