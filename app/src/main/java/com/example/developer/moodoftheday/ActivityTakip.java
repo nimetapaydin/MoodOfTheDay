@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +23,7 @@ public class ActivityTakip extends AppCompatActivity {
     final List<Kisiler> sirala = new ArrayList<Kisiler>();
     final List<String> isteklerTakip = new ArrayList<String>();
     DatabaseReference alinanKisi,istekler;
-
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +67,29 @@ public class ActivityTakip extends AppCompatActivity {
 
                        }
                    }
-                final ListView listView = (ListView) findViewById(R.id.takipliste);
-                TakipAdapter adapter = new TakipAdapter(getApplicationContext(), sirala);
+                listView = (ListView) findViewById(R.id.takipliste);
+                TakipAdapter adapter = new TakipAdapter(ActivityTakip.this, sirala);
                 listView.setAdapter(adapter);
+                Log.d("kbra","");
 
+//                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//                    @Override
+//
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Log.d("kbra","");
+//                        if(sirala.get(position).getProfilGizlilik().equals("Arkadaşlar")){
+//                            Log.d("kbra","");
+//                            Intent git = new Intent(ActivityTakip.this, ActivityArkadasDegil.class);
+//                            startActivity(git);
+//
+//                        }
+//                        else if(sirala.get(position).getProfilGizlilik().equals("Herkese Açık")){
+//                            Intent git = new Intent(ActivityTakip.this, ActivityArkadaslar.class);
+//                            git.putExtra("takipEtmeDurumu", false);
+//                            startActivity(git);
+//                    }}
+//                });
 
             }
 
@@ -78,5 +100,11 @@ public class ActivityTakip extends AppCompatActivity {
         });
 
 
+
+
+
     }
+
+
+
 }

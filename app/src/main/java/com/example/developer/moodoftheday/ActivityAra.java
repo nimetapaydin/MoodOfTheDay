@@ -77,6 +77,7 @@ DatabaseReference dbref,ArkadasListesi;
                                         if (elemanlar.contains(user.getUid())) {
 
                                             Intent git = new Intent(ActivityAra.this, ActivityArkadaslar.class);
+                                            git.putExtra("takipEtmeDurumu", true);
                                             startActivity(git);
 
                                         } else if(!elemanlar.contains(user.getUid())) {
@@ -90,29 +91,16 @@ DatabaseReference dbref,ArkadasListesi;
                                             startActivity(git);
 
                                         }
-                                    else if(elemanlar.isEmpty()){
+                                            else if(elemanlar.isEmpty()){
 
                                             Intent git = new Intent(ActivityAra.this, ActivityArkadasDegil.class);
                                             git.putExtra("profResmi", kisi.get(position).getKisiResmi());
                                             git.putExtra("kisiAdi", kisi.get(position).getName());
                                             git.putExtra("kisiId", kisi.get(position).getId());
                                             git.putExtra("suandakiKisininId", user.getUid());
-
-
                                             startActivity(git);
-
-
-
                                         }
-
-
-
-
-
-
                                     }
-
-
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
 
@@ -120,7 +108,52 @@ DatabaseReference dbref,ArkadasListesi;
                             });
 
 
-                       }}
+                       }
+
+                  else if(kisi.get(position).getProfilGizlilik().equals("Herkese Açık")){
+
+                            ArkadasListesi.child(kisi.get(position).getId()).addValueEventListener(new ValueEventListener() {
+
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                        elemanlar.add(postSnapshot.getKey());
+
+
+                                    }
+                                    if (elemanlar.contains(user.getUid())) {
+
+                                        Intent git = new Intent(ActivityAra.this, ActivityArkadaslar.class);
+                                        git.putExtra("takipEtmeDurumu", true);
+                                        startActivity(git);
+
+                                    } else if(!elemanlar.contains(user.getUid())) {
+                                        Intent git = new Intent(ActivityAra.this, ActivityArkadaslar.class);
+                                        git.putExtra("takipEtmeDurumu", false);
+                                        startActivity(git);
+
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+
+
+                    }
+
+
+                    else if( kisi.get(position).getProfilGizlilik().equals("Sadece Ben")){}
+
+
+
+
+
+                    }
                 });
 
 

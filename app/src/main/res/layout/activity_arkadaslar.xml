@@ -60,6 +60,7 @@
         android:layout_marginStart="22dp"
         android:layout_toEndOf="@+id/İstatistik"
         android:layout_toRightOf="@+id/İstatistik"
+        android:checked="false"
         android:text="Takip Ediyorsun" />
 
     <Button
