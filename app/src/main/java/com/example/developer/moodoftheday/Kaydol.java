@@ -55,6 +55,7 @@ public class Kaydol extends AppCompatActivity implements  Validator.ValidationLi
     boolean controlpointtwo=true;
 
     DatabaseReference users = FirebaseDatabase.getInstance().getReference("users");
+    DatabaseReference arkadasList = FirebaseDatabase.getInstance().getReference("ArkadasListesi");
 
     ImageButton kisiResmi;
     public String username;
@@ -149,7 +150,9 @@ public class Kaydol extends AppCompatActivity implements  Validator.ValidationLi
                                         FirebaseAuth.getInstance().getCurrentUser();
                                         if(imageUri==null){
 
-                                            users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,String.valueOf(R.drawable.ayarlar),"herkes"));
+                                            users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(task.getResult().getUser().getUid(),username, KullaniciAdi, Email, Password,String.valueOf(R.drawable.ayarlar),"Herkese Açık"));
+                                            arkadasList.child(task.getResult().getUser().getUid()).setValue(task.getResult().getUser().getEmail());
+
                                             Toast.makeText(Kaydol.this, "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(Kaydol.this, ActivityGirisSayfasi.class);
                                             startActivity(intent);
@@ -164,8 +167,9 @@ public class Kaydol extends AppCompatActivity implements  Validator.ValidationLi
                                                 @SuppressWarnings("VisibleForTests") String alll = taskSnapshot.getDownloadUrl().toString();
 
 
-                                        users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(username, KullaniciAdi, Email, Password,alll,"herkes"));
-                                        Toast.makeText(Kaydol.this, "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
+                                        users.child(task.getResult().getUser().getUid()).setValue(new Kisiler(task.getResult().getUser().getUid(),username, KullaniciAdi, Email, Password,String.valueOf(R.drawable.ayarlar),"Herkese Açık"));
+                                                arkadasList.child(task.getResult().getUser().getUid()).setValue(task.getResult().getUser().getEmail());
+                                                Toast.makeText(Kaydol.this, "Kayıt Başarılı", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Kaydol.this, ActivityGirisSayfasi.class);
                                         startActivity(intent);
                                             }});  }}

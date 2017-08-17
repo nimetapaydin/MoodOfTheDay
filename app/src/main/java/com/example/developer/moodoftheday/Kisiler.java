@@ -8,7 +8,7 @@ import android.net.Uri;
 
 public class Kisiler {
 
-
+    String id;
     String name;
     String kullaniciadi;
     String email;
@@ -19,9 +19,8 @@ public class Kisiler {
 
 
 
-    public Kisiler(String name, String kullaniciadi, String email, String password,String kisiResmi,String profilGizlilik) {
-
-
+    public Kisiler(String id, String name, String kullaniciadi, String email, String password,String kisiResmi,String profilGizlilik) {
+this.id=id;
         this.name = name;
         this.kisiResmi=kisiResmi;
         this.kullaniciadi = kullaniciadi;
@@ -31,6 +30,8 @@ public class Kisiler {
         this.profilGizlilik=profilGizlilik;
 
     }
+
+
 
     public Kisiler(String name, String kisiResmi) {
         this.name = name;
@@ -71,6 +72,15 @@ public class Kisiler {
 ////    public Kisiler(String kisiResmi) {
 ////
 ////    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

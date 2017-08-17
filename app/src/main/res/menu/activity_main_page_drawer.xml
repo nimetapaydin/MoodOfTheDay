@@ -25,7 +25,10 @@
             android:id="@+id/ara"
             android:icon="@drawable/ic_search_black_24dp"
             android:title="Ara" />
-
+        <item
+            android:id="@+id/takipİstek"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="Takip İstekleri" />
 
     </group>
 

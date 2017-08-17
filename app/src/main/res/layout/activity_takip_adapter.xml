@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.developer.moodoftheday.TakipAdapter">
+
+    <ImageView
+        android:id="@+id/takipRes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/arkaplan"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <TextView
+        android:id="@+id/takipisim"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/takipRes"
+        android:layout_toRightOf="@+id/takipRes"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/onayla"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/takipisim"
+        android:layout_alignBottom="@+id/takipisim"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_toEndOf="@+id/takipisim"
+        android:layout_toRightOf="@+id/takipisim"
+        android:background="@drawable/ic_done_all_black_24dp" />
+
+    <Button
+        android:id="@+id/sil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/onayla"
+        android:layout_alignBottom="@+id/onayla"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_clear_black_24dp" />
+</RelativeLayout>

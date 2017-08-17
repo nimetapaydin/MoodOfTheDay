@@ -39,7 +39,9 @@
         <activity android:name=".ActivityArkadasListesi" />
         <activity android:name=".ActivityAyarlar" />
         <activity android:name=".ActivityGizlilik" />
-        <activity android:name=".gizlilikAdapter"></activity>
+        <activity android:name=".gizlilikAdapter" />
+        <activity android:name=".ActivityTakip" />
+        <activity android:name=".TakipAdapter"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,6 +59,7 @@ public class MainPage extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
+        Button takip=(Button) findViewById(R.id.takip);
         ImageView image=(ImageView)hView.findViewById(R.id.ProfilPhoto);
         image.setImageResource(R.drawable.anasayfa);
         //Todo:resim eklenecek
@@ -96,6 +98,7 @@ public class MainPage extends AppCompatActivity
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -115,22 +118,36 @@ public class MainPage extends AppCompatActivity
             aa.putExtra("gelecekOlanKisi",alınan);
             startActivity(aa);
 
-        } else if (id == R.id.Arkadaslar) {
+        }  if (id == R.id.Arkadaslar) {
 
-        } else if (id == R.id.Message) {
+        }  if (id == R.id.Message) {
             //TODO: Message PAge added
 
-        }  else if (id == R.id.share) {
+        }   if (id == R.id.share) {
             //TODO: Anahatlar belli olunca oluşturulacak
            // startActivity(new Intent(getApplicationContext(), ActivityAnaSayfa.class));
 
-        } else if (id == R.id.nav_send) {
+        } if (id == R.id.nav_send) {
            // startActivity(new Intent(getApplicationContext(), ActivityModumSayfasi.class));
 
-        } else if (id == R.id.ara) {
-        startActivity(new Intent(getApplicationContext(), ActivityAra.class));
+        }  if (id == R.id.ara) {
+            Intent ara=new Intent(getApplicationContext(), ActivityAra.class);
+            ara.putExtra("ara","");
+            startActivity(ara);
 
-    } else if (id == R.id.gizlilikAyarlari) {
+    }
+           if(id==R.id.takipİstek){
+
+
+            Intent git=new Intent(getApplicationContext(),ActivityTakip.class);
+            git.putExtra("kisiIdsi",alınan);
+            startActivity(git);
+        }
+
+
+
+
+    if (id == R.id.gizlilikAyarlari) {
 
         startActivity(new Intent(getApplicationContext(), ActivityAyarlar.class));
 

@@ -103,7 +103,7 @@ public class ActivityGirisSayfasi extends AppCompatActivity {
 
                             ActivityProfilSayfasi.setAlınan(mAuth.getCurrentUser().getUid());
                             Intent intent = new Intent(ActivityGirisSayfasi.this, MainPage.class);
-                                          intent.putExtra("gelecekOlanKisi", mAuth.getCurrentUser().getUid());
+                                            intent.putExtra("gelecekOlanKisi", mAuth.getCurrentUser().getUid());
                                             startActivity(intent);
                                             finish();
 

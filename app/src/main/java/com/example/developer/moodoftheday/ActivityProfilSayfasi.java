@@ -1,5 +1,6 @@
 package com.example.developer.moodoftheday;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -54,7 +55,7 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
     Kisiler kisi=new Kisiler();
     Menu menumuz;
     StorageReference storageReference;
-    Button gizlilikAyarlari;
+    Button gizlilikAyarlari,arkadasListesi;
 
     public static String alınan;
 
@@ -245,6 +246,26 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
 
        gizlilikAyarlari.setBackgroundResource(alinanGizlilik);
 
+
+        arkadasListesi=(Button) findViewById(R.id.arkadaslar);
+        arkadasListesi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(ActivityProfilSayfasi.this,ActivityArkadasListesi.class);
+                i.putExtra("kisiIdsi",gelecekOlanKisi);
+                startActivity(i);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
     }
     String id;
     Kisiler res;
@@ -302,10 +323,10 @@ public class ActivityProfilSayfasi extends AppCompatActivity {
     }
 
 
-    private void düzenle(modumProfil modum) {
-             Intent git=new Intent(getApplicationContext(),ActivityModumSayfasi.class);
-              startActivity(git);
-    }
+//    private void düzenle(modumProfil modum) {
+//             Intent git=new Intent(getApplicationContext(),ActivityModumSayfasi.class);
+//              startActivity(git);
+//    }
 
 
 
