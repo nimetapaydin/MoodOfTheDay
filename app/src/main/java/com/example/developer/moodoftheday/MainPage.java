@@ -17,9 +17,13 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -55,17 +59,32 @@ public class MainPage extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+       //
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
         Button takip=(Button) findViewById(R.id.takip);
-        ImageView image=(ImageView)hView.findViewById(R.id.ProfilPhoto);
-        image.setImageResource(R.drawable.anasayfa);
-        //Todo:resim eklenecek
-        // kisiRef.child(alınan).child("image").getKey();
-        TextView isim=(TextView) hView.findViewById(R.id.Name);
-        isim.setText("Rumeysa Bingöl");
+        final ImageView image=(ImageView)hView.findViewById(R.id.ProfilPhoto);
+        final TextView isim=(TextView) hView.findViewById(R.id.Name);
+            kisiRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    image.setImageResource(Integer.valueOf(dataSnapshot.child(alınan).child("kisiResmi").getValue().toString()));
+                    isim.setText(dataSnapshot.child(alınan).child("name").getValue().toString());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+
+
 
     }
 
