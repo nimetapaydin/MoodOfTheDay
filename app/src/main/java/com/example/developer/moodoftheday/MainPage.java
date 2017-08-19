@@ -25,10 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainPage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+import java.util.List;
 
-        DatabaseReference kisiRef;
+//TODO: kişilerin postunun nerden alınacağını sor
+public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private ArrayList<Post> posts = new ArrayList<Post>();
+    private  MainPageAdapter adapter;
+    DatabaseReference kisiRef;
     String alınan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,7 @@ public class MainPage extends AppCompatActivity
 
                     image.setImageResource(Integer.valueOf(dataSnapshot.child(alınan).child("kisiResmi").getValue().toString()));
                     isim.setText(dataSnapshot.child(alınan).child("name").getValue().toString());
+
                 }
 
                 @Override
@@ -79,12 +84,6 @@ public class MainPage extends AppCompatActivity
 
                 }
             });
-
-
-
-
-
-
 
     }
 
